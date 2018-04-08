@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.1.RELEASE'
+		springBootVersion = '1.5.10.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -10,8 +10,12 @@ buildscript {
 		classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.2'
 	}
 }
-apply plugin: 'com.github.kt3k.coveralls'
-apply plugin: 'jacoco'
+plugins {
+	id 'jacoco'
+	id 'com.github.kt3k.coveralls' version '2.8.2'
+}
+
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -24,7 +28,6 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
-
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
